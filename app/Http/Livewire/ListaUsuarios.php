@@ -12,6 +12,8 @@ class ListaUsuarios extends Component
     public $email;
     public $password;
     public $lista;
+    public $acao = 'cadastrar';
+    public $idUsuario;
 
     public function render(UsuarioService $usuarioService)
     {
@@ -19,7 +21,7 @@ class ListaUsuarios extends Component
         return view('livewire.lista-usuarios');
     }
 
-    public function add(UsuarioService $usuarioService)
+    public function store(UsuarioService $usuarioService)
     {
         $request = [
             'name' => $this->name,
@@ -27,5 +29,22 @@ class ListaUsuarios extends Component
             'password' => $this->password
         ];
         $usuarioService->store($request);
+    }
+    public function delete($id, UsuarioService $usuarioService)
+    {
+        $usuarioService->delete($id);
+    }
+    public function edit($id)
+    {
+        $this->acao = "editar";
+        $this->idUsuario = $id;
+    }
+    public function update(UsuarioService $usuarioService){
+        $request = [
+            'name' => $this->name,
+            'email' => $this->email,
+            'password' => $this->password
+        ];
+        $usuarioService->update($this->idUsuario, $request);
     }
 }
