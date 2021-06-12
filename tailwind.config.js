@@ -25,6 +25,24 @@ module.exports = {
             450: '#5F99F7'
           },
       },
+      order: {
+        first: '-9999',
+        last: '9999',
+       none: '0',
+       normal: '0',
+        '1': '1',
+        '2': '2',
+        '3': '3',
+        '4': '4',
+        '5': '5',
+        '6': '6',
+       '7': '7',
+       '8': '8',
+       '9': '9',
+       '10': '10',
+       '11': '11',
+       '12': '12',
+      },
       minHeight: {
         'screen-75': '75vh'
       },
@@ -37,6 +55,19 @@ module.exports = {
       zIndex: {
         '2': 2,
         '3': 3
+      },
+
+      margin:{
+        'mt-30': 'margin-top: 5rem',
+        'mt-40': 'margin-top: 10rem',
+        'mt-45': 'margin-top: 15rem'
+      },
+
+      flex:{
+          'flex-1': 'flex: 1 1 0%',
+          'flex-auto': 'flex: 1 1 auto',
+          'flex-initial': 'flex: 0 1 auto',
+          'flex-none': 'flex: none'
       },
       inset: {
         '-100': '-100%',
@@ -80,6 +111,13 @@ module.exports = {
       },
       backgroundSize: {
         full: '100$'
+      },
+      gridTemplateColumns: {
+        // Simple 16 column grid
+       '16': 'repeat(16, minmax(0, 1fr))',
+
+        // Complex site-specific column configuration
+       'footer': '200px minmax(900px, 1fr) 100px',
       }
     }
   },

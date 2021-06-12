@@ -22,3 +22,7 @@ Route::any('profile-password-edit', function() {
 Route::any('profile-password-edit', function() {
 
 })->name('admin.home');
+
+Route::get('/login', function(){
+    return view('admin.pages.login.index');
+});
