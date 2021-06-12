@@ -14,5 +14,11 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('admin.home');
 });
+Route::any('profile-password-edit', function() {
+
+})->name('profile.password.edit');
+Route::any('profile-password-edit', function() {
+
+})->name('admin.home');
