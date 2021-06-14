@@ -4,6 +4,7 @@ namespace App\Http\Livewire\Login;
 
 use Livewire\Component;
 use App\Requests\Login\LoginValida;
+use App\Services\Login\LoginService;
 
 class Login extends Component
 {
@@ -26,13 +27,20 @@ class Login extends Component
     {
         return view('livewire.login.login');
     }
-    public function save()
+    public function save(LoginService $loginService)
     {
         $this->validate();
+        $data = [
+            'email' => $this->email,
+            'password' => $this->password
+        ];
+        //dd($loginService->validate($data));
+        return view('livewire.home')->extends('layouts.admin.admin');
     }
     public function updated($propertyName)
     {
         $this->validateOnly($propertyName);
+
     }
 
 }
