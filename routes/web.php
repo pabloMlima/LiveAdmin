@@ -30,3 +30,7 @@ Route::get('/login', function(){
 Route::get('/home', function(){
     return view('admin.pages.login.index');
 })->name('admin.home');
+
+Route::get('/usuario/novo', function(){
+    return view('admin.user.create');
+})->name('admin.usuario-novo');

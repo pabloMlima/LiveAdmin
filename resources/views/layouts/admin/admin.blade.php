@@ -8,26 +8,38 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w==" crossorigin="anonymous" />
     <link rel="stylesheet" href="{{ asset('css/app.css') }}" />
     <title>{{ trans('panel.site_title') }}</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-
+    <link rel="stylesheet" href="{{ asset('css/adminlte.min.css') }}" />
     <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.8.2/dist/alpine.min.js" defer></script>
+    <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+    <!-- Tempusdominus Bootstrap 4 -->
+    <link rel="stylesheet" href="{{asset('plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css')}}">
+    <!-- iCheck -->
+    <link rel="stylesheet" href="{{asset('plugins/icheck-bootstrap/icheck-bootstrap.min.css')}}">
+    <!-- JQVMap -->
+    <link rel="stylesheet" href="{{asset('plugins/jqvmap/jqvmap.min.css')}}">
+    <!-- overlayScrollbars -->
+    <link rel="stylesheet" href="{{asset('plugins/overlayScrollbars/css/OverlayScrollbars.min.css')}}">
+    <!-- Daterange picker -->
+    <link rel="stylesheet" href="{{asset('plugins/daterangepicker/daterangepicker.css')}}">
+    <!-- summernote -->
+    <link rel="stylesheet" href="{{asset('plugins/summernote/summernote-bs4.min.css')}}">
+</head>
     @livewireStyles
         @stack('styles')
 </head>
 
-<body class="text-blueGray-800 antialiased">
-
+<body class="hold-transition sidebar-mini layout-fixed">
+ <!-- Preloader -->
+  <div class="preloader flex-column justify-content-center align-items-center">
+    <img class="animation__shake" src="dist/img/AdminLTELogo.png" alt="AdminLTELogo" height="60" width="60">
+  </div>
     <noscript>You need to enable JavaScript to run this app.</noscript>
 
     <div id="app">
         <x-sidebar />
 
-        <div class="relative md:ml-64 bg-blueGray-50 min-h-screen">
+        <div >
             <x-nav />
-
-            <div class="relative bg-pink-600 md:pt-32 pb-32 pt-12">
-                <div class="px-4 md:px-10 mx-auto w-full">&nbsp;</div>
-            </div>
 
             <div class="relative px-4 md:px-10 mx-auto w-full min-h-full -m-48">
                 @if(session('status'))
@@ -35,7 +47,7 @@
                 @endif
 
                 @yield('content')
-
+                <br><br>
                 <x-footer />
             </div>
         </div>
@@ -46,9 +58,40 @@
         {{ csrf_field() }}
     </form>
     <script type="text/javascript" src="{{ asset('js/app.js') }}"></script>
-    <script src="https://unpkg.com/@popperjs/core@2/dist/umd/popper.js"></script>
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="{{ asset('plugins/jquery/jquery.min.js')}}"></script>
+<!-- jQuery UI 1.11.4 -->
+    <script src="{{ asset('plugins/jquery-ui/jquery-ui.min.js')}}"></script>
+    <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
+    <script>
+    $.widget.bridge('uibutton', $.ui.button)
+    </script>
+    <!-- Bootstrap 4 -->
+    <script src="{{ asset('plugins/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
+    <!-- ChartJS -->
+    <script src="{{ asset('plugins/chart.js/Chart.min.js')}}"></script>
+    <!-- Sparkline -->
+    <script src="{{ asset('plugins/sparklines/sparkline.js')}}"></script>
+    <!-- JQVMap -->
+    <script src="{{ asset('plugins/jqvmap/jquery.vmap.min.js')}}"></script>
+    <script src="{{ asset('plugins/jqvmap/maps/jquery.vmap.usa.js')}}"></script>
+    <!-- jQuery Knob Chart -->
+    <script src="{{ asset('plugins/jquery-knob/jquery.knob.min.js')}}"></script>
+    <!-- daterangepicker -->
+    <script src="{{ asset('plugins/moment/moment.min.js')}}"></script>
+    <script src="{{ asset('plugins/daterangepicker/daterangepicker.js')}}"></script>
+    <!-- Tempusdominus Bootstrap 4 -->
+    <script src="{{ asset('plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js')}}"></script>
+    <!-- Summernote -->
+    <script src="{{ asset('plugins/summernote/summernote-bs4.min.js')}}"></script>
+    <!-- overlayScrollbars -->
+    <script src="{{ asset('plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js')}}"></script>
+    <!-- AdminLTE App -->
+    <script src="{{ asset('js/adminlte.min.js')}}"></script>
+    <!-- AdminLTE for demo purposes -->
+    <script src="{{asset('js/demo.js')}}"></script>
+    <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
+    <script src="{{ asset('js/dashboard.js')}}"></script>
+
     @livewireScripts
         @yield('scripts')
         @stack('scripts')
