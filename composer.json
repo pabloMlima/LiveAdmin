@@ -17,7 +17,8 @@
         "livewire/livewire": "^2.4",
         "doctrine/dbal": "^3.0",
         "laravel/ui": "^3.2",
-        "laravel/sanctum": "^2.8"
+        "laravel/sanctum": "^2.8",
+        "laravel/spark-paddle": "^1.0"
     },
     "require-dev": {
         "facade/ignition": "^2.3.6",
