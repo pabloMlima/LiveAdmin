@@ -11,7 +11,7 @@ class Role extends Model
 
     public $table = 'roles';
 
-    public $filterable = [
+    public $fillable = [
         'id',
         'name',
         'slug',

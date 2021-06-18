@@ -11,7 +11,7 @@ class Permission extends Model
 
     public $table = 'permissions';
 
-    public $filterable = [
+    protected $fillable = [
         'id',
         'name',
         'slug',

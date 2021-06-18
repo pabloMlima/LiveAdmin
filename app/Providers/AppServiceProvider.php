@@ -6,6 +6,10 @@ use Illuminate\Support\ServiceProvider;
 use App\Repositories\Eloquent\UsuarioEloquent;
 use App\Repositories\Contracts\UsuarioInterface;
 use Illuminate\Support\Facades\Schema;
+use App\Repositories\Contracts\PermissionInterface;
+use App\Repositories\Eloquent\PermissionEloquent;
+use App\Repositories\Role\RoleInterface;
+use App\Repositories\Role\RoleEloquent;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -17,6 +21,8 @@ class AppServiceProvider extends ServiceProvider
     public function register()
     {
         $this->app->bind(UsuarioInterface::class, UsuarioEloquent::class);
+        $this->app->bind(PermissionInterface::class, PermissionEloquent::class);
+        $this->app->bind(RoleInterface::class, RoleEloquent::class);
     }
 
     /**

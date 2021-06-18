@@ -37,26 +37,20 @@
 
     <div id="app">
         <x-sidebar />
-
         <div >
             <x-nav />
-
-            <div class="relative px-4 md:px-10 mx-auto w-full min-h-full -m-48">
-                @if(session('status'))
-                    <x-alert message="{{ session('status') }}" variant="indigo" role="alert" />
-                @endif
-
-                @yield('content')
-                <br><br>
+            <div class="relative">
+                <section class="container offset-md-2 mt-8">
+                    @if (session()->has('message'))
+                        <x-alert message="{{ session('message') }}" variant="{{ session('variant') }}" role="alert" />
+                    @endif
+                    @yield('content')
+                </section>
                 <x-footer />
             </div>
         </div>
-
     </div>
 
-    <form id="logoutform"  method="POST" style="display: none;">
-        {{ csrf_field() }}
-    </form>
     <script type="text/javascript" src="{{ asset('js/app.js') }}"></script>
     <script src="{{ asset('plugins/jquery/jquery.min.js')}}"></script>
 <!-- jQuery UI 1.11.4 -->

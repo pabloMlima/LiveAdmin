@@ -60,7 +60,8 @@ module.exports = {
       margin:{
         'mt-30': 'margin-top: 5rem',
         'mt-40': 'margin-top: 10rem',
-        'mt-45': 'margin-top: 15rem'
+        'mt-45': 'margin-top: 15rem',
+        'm-16': 'margin: 4rem'
       },
 
       flex:{

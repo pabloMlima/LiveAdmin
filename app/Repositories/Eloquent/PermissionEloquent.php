@@ -1,22 +1,22 @@
 <?php
 
 namespace App\Repositories\Eloquent;
-use App\Repositories\Contracts\UsuarioInterface;
-use App\Models\Usuario;
+use App\Repositories\Contracts\PermissionInterface;
+use App\Models\Permission;
 
-class UsuarioEloquent implements UsuarioInterface{
+class PermissionEloquent implements PermissionInterface{
 
     private $model;
     protected $query;
     protected $wheres = array();
     protected $whereIns = array();
 
-    public function __construct(Usuario $model){
+    public function __construct(Permission $model){
         $this->model = $model;
     }
 
-    public function getAll(array $columns = ['*'], array $relations = ['']){
-        return $this->model->with($relations)->get($columns);
+    public function getAll(array $columns = ['*'], $relations = ['']){
+        return $this->model->get($columns);
     }
 
     public function getById($id, array $columns = ['*']){
@@ -42,7 +42,9 @@ class UsuarioEloquent implements UsuarioInterface{
 
     public function delete($id){
         return $this->model->findOrFail($id)->delete();
+
     }
+
     public function getBy(
         array $columns = ['*'],
         array $conditions = [],

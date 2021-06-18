@@ -34,3 +34,10 @@ Route::get('/home', function(){
 Route::get('/usuario/novo', function(){
     return view('admin.user.create');
 })->name('admin.usuario-novo');
+
+Route::get('/permissoes/cadastrar', function(){
+    return view('admin.permission.create');
+})->name('admin.permissoes-cadastrar');
+Route::get('/permissoes/index', function(){
+    return view('admin.permission.index');
+})->name('admin.permission.index');

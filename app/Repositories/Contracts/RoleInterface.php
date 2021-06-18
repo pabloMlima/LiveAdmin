@@ -1,7 +1,7 @@
 <?php
 namespace App\Repositories\Contracts;
 
-interface UsuarioInterface
+interface RoleInterface
 {
 
     public function getAll(array $columns = ['*'], array $relations = ['']);

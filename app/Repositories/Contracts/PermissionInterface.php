@@ -1,10 +1,10 @@
 <?php
 namespace App\Repositories\Contracts;
 
-interface UsuarioInterface
+interface PermissionInterface
 {
 
-    public function getAll(array $columns = ['*'], array $relations = ['']);
+    public function getAll(array $columns = ['*'], $relations = ['']);
 
     public function getById($id, array $columns = ['*']);
 

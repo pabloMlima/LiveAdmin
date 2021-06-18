@@ -1,17 +1,17 @@
 <?php
 
 namespace App\Repositories\Eloquent;
-use App\Repositories\Contracts\UsuarioInterface;
-use App\Models\Usuario;
+use App\Repositories\Contracts\RoleInterface;
+use App\Models\Role;
 
-class UsuarioEloquent implements UsuarioInterface{
+class RoleEloquent implements RoleInterface{
 
     private $model;
     protected $query;
     protected $wheres = array();
     protected $whereIns = array();
 
-    public function __construct(Usuario $model){
+    public function __construct(Role $model){
         $this->model = $model;
     }
 
@@ -42,6 +42,7 @@ class UsuarioEloquent implements UsuarioInterface{
 
     public function delete($id){
         return $this->model->findOrFail($id)->delete();
+
     }
     public function getBy(
         array $columns = ['*'],
