@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddHasFreeAccessToUsersTable extends Migration
+class CreatePermissions extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,11 @@ class AddHasFreeAccessToUsersTable extends Migration
      */
     public function up()
     {
-        Schema::table('users', function (Blueprint $table) {
-            $table->boolean('has_free_access')->default(false);
+        Schema::create('permissions', function (Blueprint $table) {
+            $table->increments('id');
+            $table->string('name'); // edit posts
+            $table->string('slug'); //edit-posts
+            $table->timestamps();
         });
     }
 
@@ -25,8 +28,6 @@ class AddHasFreeAccessToUsersTable extends Migration
      */
     public function down()
     {
-        Schema::table('users', function (Blueprint $table) {
-            //
-        });
+        Schema::dropIfExists('permissions');
     }
 }

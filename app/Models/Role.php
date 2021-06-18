@@ -2,48 +2,40 @@
 
 namespace App\Models;
 
-use \DateTimeInterface;
-use App\Support\HasAdvancedFilter;
+//use \DateTimeInterface;
+//use App\Support\HasAdvancedFilter;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\SoftDeletes;
+//use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Role extends Model
 {
     use HasFactory;
-    use HasAdvancedFilter;
-    use SoftDeletes;
+    //use HasAdvancedFilter;
+    //use SoftDeletes;
 
     public $table = 'roles';
 
-    public $orderable = [
-        'id',
-        'title',
-    ];
-
     public $filterable = [
         'id',
-        'title',
-        'permissions.title',
-    ];
-
-    protected $fillable = [
-        'title',
+        'name',
+        'slug',
     ];
 
     protected $dates = [
         'created_at',
         'updated_at',
-        'deleted_at',
     ];
 
-    public function permissions()
-    {
-        return $this->belongsToMany(Permission::class);
+    public function permissions() {
+
+        return $this->belongsToMany(Permission::class,'roles_permissions');
+
     }
 
-    protected function serializeDate(DateTimeInterface $date)
-    {
-        return $date->format('Y-m-d H:i:s');
+    public function users() {
+
+        return $this->belongsToMany(User::class,'users_roles');
+
     }
 }
