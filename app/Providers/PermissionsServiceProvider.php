@@ -2,10 +2,10 @@
 
 namespace App\Providers;
 
-use Illuminate\Support\ServiceProvider;
 use App\Models\Permission;
 use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\Facades\Gate;
+use Illuminate\Support\ServiceProvider;
 
 class PermissionsServiceProvider extends ServiceProvider
 {
@@ -15,6 +15,16 @@ class PermissionsServiceProvider extends ServiceProvider
      * @return void
      */
     public function register()
+    {
+        //
+    }
+
+    /**
+     * Bootstrap services.
+     *
+     * @return void
+     */
+    public function boot()
     {
         try {
             Permission::get()->map(function ($permission) {
@@ -35,15 +45,5 @@ class PermissionsServiceProvider extends ServiceProvider
         Blade::directive('endrole', function ($role) {
              return "endif;"; //return this endif statement inside php tag
         });
-    }
-
-    /**
-     * Bootstrap services.
-     *
-     * @return void
-     */
-    public function boot()
-    {
-        //
     }
 }
