@@ -15,7 +15,7 @@ class PermissionEloquent implements PermissionInterface{
         $this->model = $model;
     }
 
-    public function getAll(array $columns = ['*'], $relations = ['']){
+    public function getAll(array $columns = ['*']){
         return $this->model->get($columns);
     }
 

@@ -1,12 +1,11 @@
-@extends('layouts.admin')
+@extends('layouts.admin.admin')
 @section('content')
 
 <div class="card bg-blueGray-100">
     <div class="card-header">
         <div class="card-header-container">
             <h6 class="card-title">
-                {{ trans('global.create') }}
-                {{ trans('cruds.role.title_singular') }}
+               Novo perfil
             </h6>
         </div>
     </div>

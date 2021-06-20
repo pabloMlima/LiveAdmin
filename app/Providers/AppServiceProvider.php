@@ -8,8 +8,8 @@ use App\Repositories\Contracts\UsuarioInterface;
 use Illuminate\Support\Facades\Schema;
 use App\Repositories\Contracts\PermissionInterface;
 use App\Repositories\Eloquent\PermissionEloquent;
-use App\Repositories\Role\RoleInterface;
-use App\Repositories\Role\RoleEloquent;
+use App\Repositories\Contracts\RoleInterface;
+use App\Repositories\Eloquent\RoleEloquent;
 
 class AppServiceProvider extends ServiceProvider
 {

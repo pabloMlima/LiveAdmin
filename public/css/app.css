@@ -794,11 +794,6 @@ select {
 		justify-content: flex-end;
 	}
 
-	.md\:px-10 {
-		padding-left: 2.5rem;
-		padding-right: 2.5rem;
-	}
-
 	.md\:text-left {
 		text-align: left;
 	}
@@ -880,10 +875,6 @@ select {
     .md\:justify-end {
         justify-content: flex-end
     }
-    .md\:px-10 {
-        padding-left: 2.5rem;
-        padding-right: 2.5rem
-    }
     .md\:text-left {
         text-align: left
     }
@@ -923,15 +914,6 @@ select {
 .m-10 {
     margin: 2.5rem
 }
-.m-16 {
-    margin: 4rem
-}
-.-m-48 {
-    margin: -12rem
-}
-.m-72 {
-    margin: 18rem
-}
 .mx-auto {
     margin-left: auto;
     margin-right: auto
@@ -939,14 +921,6 @@ select {
 .my-8 {
     margin-top: 2rem;
     margin-bottom: 2rem
-}
-.mx-12 {
-    margin-left: 3rem;
-    margin-right: 3rem
-}
-.mx-8 {
-    margin-left: 2rem;
-    margin-right: 2rem
 }
 .mb-2 {
     margin-bottom: 0.5rem
@@ -987,14 +961,14 @@ select {
 .mt-2 {
     margin-top: 0.5rem
 }
+.mt-8 {
+    margin-top: 2rem
+}
 .mt-40 {
     margin-top: 10rem
 }
 .ml-3 {
     margin-left: 0.75rem
-}
-.mt-8 {
-    margin-top: 2rem
 }
 .block {
     display: block
@@ -1017,11 +991,11 @@ select {
 .h-screen {
     height: 100vh
 }
-.min-h-full {
-    min-height: 100%
-}
 .min-h-screen {
     min-height: 100vh
+}
+.min-h-full {
+    min-height: 100%
 }
 .w-full {
     width: 100%
@@ -1093,10 +1067,6 @@ select {
 .bg-gray-100 {
     --tw-bg-opacity: 1;
     background-color: rgba(243, 244, 246, var(--tw-bg-opacity))
-}
-.bg-red-500 {
-    --tw-bg-opacity: 1;
-    background-color: rgba(239, 68, 68, var(--tw-bg-opacity))
 }
 .py-3 {
     padding-top: 0.75rem;
@@ -1245,10 +1215,6 @@ select {
     }
     .md\:justify-end {
         justify-content: flex-end
-    }
-    .md\:px-10 {
-        padding-left: 2.5rem;
-        padding-right: 2.5rem
     }
     .md\:text-left {
         text-align: left

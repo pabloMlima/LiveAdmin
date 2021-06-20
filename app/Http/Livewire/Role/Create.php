@@ -4,6 +4,8 @@ namespace App\Http\Livewire\Role;
 
 use App\Models\Permission;
 use App\Models\Role;
+use App\Services\Role\RoleService;
+use App\Services\Permission\PermissionService;
 use Livewire\Component;
 
 class Create extends Component
@@ -14,9 +16,9 @@ class Create extends Component
 
     public array $listsForFields = [];
 
-    public function mount(Role $role)
+    public function mount(RoleService $roleService)
     {
-        $this->role = $role;
+        $this->roleService = $roleService;
         $this->initListsForFields();
     }
 
@@ -55,6 +57,6 @@ class Create extends Component
 
     protected function initListsForFields(): void
     {
-        $this->listsForFields['permissions'] = Permission::pluck('title', 'id')->toArray();
+        $this->listsForFields['permissions'] = Permission::pluck('name', 'id')->toArray();
     }
 }

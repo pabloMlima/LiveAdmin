@@ -9,6 +9,7 @@ use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Gate;
 use Livewire\Component;
 use Livewire\WithPagination;
+use App\Services\Permission\PermissionService;
 
 class Index extends Component
 {
@@ -24,6 +25,8 @@ class Index extends Component
 
     public array $selected = [];
 
+    public  $permissions;
+
     public array $paginationOptions;
 
     protected $queryString = [
@@ -37,6 +40,11 @@ class Index extends Component
             'except' => 'desc',
         ],
     ];
+    protected $permissionService;
+
+    public function mount(PermissionService $permissionService){
+        $this->permissionService = $permissionService;
+    }
 
     public function getSelectedCountProperty()
     {
@@ -58,26 +66,10 @@ class Index extends Component
         $this->selected = [];
     }
 
-    public function mount()
-    {
-        $this->sortBy            = 'id';
-        $this->sortDirection     = 'desc';
-        $this->perPage           = 100;
-        $this->paginationOptions = config('project.pagination.options');
-        $this->orderable         = (new Permission())->orderable;
-    }
-
     public function render()
     {
-        $query = Permission::advancedFilter([
-            's'               => $this->search ?: null,
-            'order_column'    => $this->sortBy,
-            'order_direction' => $this->sortDirection,
-        ]);
-
-        $permissions = $query->paginate($this->perPage);
-
-        return view('livewire.permission.index', compact('query', 'permissions', 'permissions'));
+        $this->permissions = $this->permissionService->getAll(['*']);
+        return view('livewire.permission.index');
     }
 
     public function deleteSelected()

@@ -9,6 +9,7 @@ use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Gate;
 use Livewire\Component;
 use Livewire\WithPagination;
+use App\Services\Role\RoleService;
 
 class Index extends Component
 {
@@ -17,6 +18,8 @@ class Index extends Component
     use WithConfirmation;
 
     public int $perPage;
+
+    public $roles;
 
     public array $orderable;
 
@@ -38,6 +41,8 @@ class Index extends Component
         ],
     ];
 
+    private $roleService;
+
     public function getSelectedCountProperty()
     {
         return count($this->selected);
@@ -58,26 +63,17 @@ class Index extends Component
         $this->selected = [];
     }
 
-    public function mount()
+    public function mount(RoleService $roleService)
     {
-        $this->sortBy            = 'id';
-        $this->sortDirection     = 'desc';
-        $this->perPage           = 100;
-        $this->paginationOptions = config('project.pagination.options');
-        $this->orderable         = (new Role())->orderable;
+        $this->roleService = $roleService;
     }
 
     public function render()
     {
-        $query = Role::with(['permissions'])->advancedFilter([
-            's'               => $this->search ?: null,
-            'order_column'    => $this->sortBy,
-            'order_direction' => $this->sortDirection,
-        ]);
 
-        $roles = $query->paginate($this->perPage);
+        $this->roles = $this->roleService->getAll(['*']);
 
-        return view('livewire.role.index', compact('query', 'roles', 'roles'));
+        return view('livewire.role.index');
     }
 
     public function deleteSelected()

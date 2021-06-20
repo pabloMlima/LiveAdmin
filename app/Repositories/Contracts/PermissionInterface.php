@@ -4,7 +4,7 @@ namespace App\Repositories\Contracts;
 interface PermissionInterface
 {
 
-    public function getAll(array $columns = ['*'], $relations = ['']);
+    public function getAll(array $columns = ['*']);
 
     public function getById($id, array $columns = ['*']);
 

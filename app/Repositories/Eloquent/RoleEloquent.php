@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Repositories\Eloquent;
 use App\Repositories\Contracts\RoleInterface;
 use App\Models\Role;
@@ -15,8 +14,8 @@ class RoleEloquent implements RoleInterface{
         $this->model = $model;
     }
 
-    public function getAll(array $columns = ['*'], array $relations = ['']){
-        return $this->model->with($relations)->get($columns);
+    public function getAll(array $columns = ['*']){
+        return $this->model->get($columns);
     }
 
     public function getById($id, array $columns = ['*']){

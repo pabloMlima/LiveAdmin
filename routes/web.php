@@ -38,6 +38,15 @@ Route::get('/usuario/novo', function(){
 Route::get('/permissoes/cadastrar', function(){
     return view('admin.permission.create');
 })->name('admin.permissoes-cadastrar');
+
 Route::get('/permissoes/index', function(){
     return view('admin.permission.index');
 })->name('admin.permission.index');
+
+Route::get('/perfis/index', function(){
+    return view('admin.role.index');
+})->name('admin.perfis.index');
+
+Route::get('/perfis/cadastrar', function(){
+    return view('admin.role.create');
+})->name('admin.perfis.cadastrar');

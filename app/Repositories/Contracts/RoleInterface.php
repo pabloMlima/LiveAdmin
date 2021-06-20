@@ -4,7 +4,7 @@ namespace App\Repositories\Contracts;
 interface RoleInterface
 {
 
-    public function getAll(array $columns = ['*'], array $relations = ['']);
+    public function getAll(array $columns = ['*']);
 
     public function getById($id, array $columns = ['*']);
 
